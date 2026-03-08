@@ -3,7 +3,7 @@
 # Copyright 2018 Peter Monta
 
 import numpy as np
-from sympy.ntheory import legendre_symbol
+from sympy.functions.combinatorial.numbers import legendre_symbol
 
 chip_rate = 1023000
 code_length = 10230
@@ -65,7 +65,7 @@ l1cp_params = {
 }
 
 N = 10223
-L = np.array([legendre_symbol(i,N) for i in range(N)])
+L = np.array([int(legendre_symbol(i,N)) for i in range(N)], dtype=int)
 L[L==-1] = 0
 L[0] = 0
 
